@@ -14,6 +14,19 @@
     </div>
   </div>
 </template>
+<script>
+import API from '@/api'
+export default {
+  created () {
+    API.getData({ page: 1, size: 10 }).then(resp => {
+      console.log(resp)
+    })
+    API.submitForm({ name: 'tom' }).then(resp => {
+      console.log(resp)
+    })
+  }
+}
+</script>
 
 <style lang="less" scoped>
 .icon-file {

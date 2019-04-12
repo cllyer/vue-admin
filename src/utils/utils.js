@@ -3,7 +3,7 @@ import { Loading, MessageBox, Message, Notification } from 'element-ui'
 const required = () => { throw new Error('Missing parameter') }
 
 // loading层
-let loadingInstance:any = null
+let loadingInstance = null
 export function openLoading () {
   loadingInstance = Loading.service({
     lock: true,

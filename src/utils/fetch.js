@@ -1,7 +1,7 @@
 // axios组件初始化
 import axios from 'axios'
 import qs from 'qs'
-import { openLoading, closeLoading } from './utils'
+import Utils from './utils'
 
 // axios.defaults.timeout = 30000
 // axios.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8'
@@ -18,7 +18,7 @@ service.interceptors.request.use(
 
     // noLoading => 请求前不打开loading   stopCloseLoading => 请求完成后阻止关闭loading
     config.autoCloseLoading = !config.params.noLoading && !config.params.stopCloseLoading
-    if (!config.params.noLoading) { openLoading() }
+    if (!config.params.noLoading) { Utils.openLoading() }
     delete config.params.noLoading
 
     // post请求配置，参数序列化 needStringify => 参数序列化
@@ -42,7 +42,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     if (response.config.autoCloseLoading) {
-      closeLoading()
+      Utils.closeLoading()
     }
     if (response.data.code !== 0) {
       let rejection = {

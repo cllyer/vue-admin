@@ -4,18 +4,18 @@ const required = () => { throw new Error('Missing parameter') }
 
 // loading层
 let loadingInstance = null
-export function openLoading () {
+function openLoading () {
   loadingInstance = Loading.service({
     lock: true,
     background: 'rgba(255, 255, 255, 0.37)'
   })
 }
-export function closeLoading () {
+function closeLoading () {
   loadingInstance.close()
 }
 
 // alert
-export function showAlert (msg = required()) {
+function alert (msg = required()) {
   MessageBox.alert(msg, '警告', {
     confirmButtonText: '确定',
     callback: action => {
@@ -25,7 +25,7 @@ export function showAlert (msg = required()) {
 }
 
 // confirm
-export function showConfirm (msg = required()) {
+function confirm (msg = required()) {
   return MessageBox.confirm(msg, '确认', {
     confirmButtonText: '确定',
     type: 'warning'
@@ -39,7 +39,7 @@ export function showConfirm (msg = required()) {
 }
 
 // message
-export function showMsg (msg = required()) {
+function message (msg = required()) {
   Message({
     message: msg,
     duration: 2000,
@@ -49,11 +49,20 @@ export function showMsg (msg = required()) {
 }
 
 // notification
-export function showNotification (msg = required()) {
+function notification (msg = required()) {
   Notification({
     title: '提示',
     message: msg,
     type: 'success',
     position: 'bottom-right'
   })
+}
+
+export default {
+  openLoading,
+  closeLoading,
+  alert,
+  confirm,
+  message,
+  notification
 }

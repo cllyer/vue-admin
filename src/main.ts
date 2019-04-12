@@ -5,10 +5,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import './icons'
+import base from './utils/base.js'
 
+import './icons'
 import './mock'
 
+Vue.use(base)
 Vue.config.productionTip = false
 
 new Vue({

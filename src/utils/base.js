@@ -2,7 +2,7 @@
  * 在Vue的原型中挂载全局变量和方法
  * 在组件中可以使用this.xxx调用
  */
-import { openLoading, closeLoading } from '@/utils/utils'
+import Utils from '@/utils/utils'
 
 // 事件防抖
 let timer = null
@@ -18,10 +18,12 @@ function debounce (fn, delay = 500) {
   }
 }
 
-export default {
+const base = {
   install (Vue, options) {
-    Vue.prototype.openLoading = openLoading
-    Vue.prototype.closeLoading = closeLoading
+    Vue.prototype.openLoading = Utils.openLoading
+    Vue.prototype.closeLoading = Utils.closeLoading
     Vue.prototype.debounce = debounce
   }
 }
+
+export default base

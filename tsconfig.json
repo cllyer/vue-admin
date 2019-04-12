@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true, //允许js混编
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -30,7 +31,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
+    "tests/**/*.ts",, "src/utils/base.js"
     "tests/**/*.tsx"
   ],
   "exclude": [

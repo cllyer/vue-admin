@@ -7,10 +7,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import base from './utils/base'
+
 import './icons'
 import './mock'
 
 Vue.use(ElementUI)
+Vue.use(base)
 
 Vue.config.productionTip = false
 

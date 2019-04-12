@@ -18,6 +18,7 @@
 import API from '@/api'
 export default {
   created () {
+    this.openLoading()
     API.getData({ page: 1, size: 10 }).then(resp => {
       console.log(resp)
     })

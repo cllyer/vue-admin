@@ -12,7 +12,7 @@ module.exports = {
   // publicPath: '/',
   configureWebpack: {
     externals: {
-      'BMap': 'BMap'
+      // 'BMap': 'BMap'
     },
     plugins: []
   },

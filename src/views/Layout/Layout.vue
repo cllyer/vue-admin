@@ -32,8 +32,11 @@ export default {
   width: 100%;
   height: 100%;
   #app-head {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
     line-height: 60px;
-    background-image: url('~@/assets/imgs/head.png');
+    background-color: #409EFF;
     background-size: 100% 100%;
   }
   #app-nav {

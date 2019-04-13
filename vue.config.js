@@ -9,7 +9,7 @@ function resolve (dir) {
 }
 
 module.exports = {
-  // publicPath: '/',
+  publicPath: './',
   outputDir: 'docs',
   configureWebpack: {
     externals: {

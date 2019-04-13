@@ -4,7 +4,7 @@ import Mock from 'mockjs'
 Mock.mock(RegExp('/api/data.*'), 'get', options => {
   let params = {
     page: 1,
-    size: 10
+    size: 20
   }
   let suffix = options.url.split('?')[1]
   if (suffix) {

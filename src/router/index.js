@@ -10,23 +10,33 @@ export default new Router({
     {
       path: '/',
       component: Layout,
+      meta: {
+        icon: '',
+        label: '首页'
+      },
       redirect: 'home',
       children: [
         { path: 'home', name: 'home', component: Home }
       ]
     }, {
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      path: '/about',
+      path: '/base',
       component: Layout,
-      redirect: '/about/index',
       children: [
-        { path: 'index', name: 'about', component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue') }
+        { path: 'about', name: 'about', component: () => import(/* webpackChunkName: "base" */ '../views/About/About.vue') },
+        { path: 'list', name: 'list', component: () => import(/* webpackChunkName: "base" */ '../views/BasePage/TableList.vue') }
       ]
     }, {
-      path: '/*',
-      redirect: '/'
+      path: '/error',
+      component: Layout,
+      children: [
+        { path: '403', name: '403', component: () => import(/* webpackChunkName: "error" */ '../views/Error/403.vue') },
+        { path: '404', name: '404', component: () => import(/* webpackChunkName: "error" */ '../views/Error/404.vue') },
+        { path: '500', name: '500', component: () => import(/* webpackChunkName: "error" */ '../views/Error/500.vue') }
+      ]
     }
+    // , {
+    //   path: '/*',
+    //   redirect: '/'
+    // }
   ]
 })

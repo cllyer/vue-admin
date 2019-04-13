@@ -2,25 +2,26 @@
   <el-container id="app-container">
     <el-header id="app-head">Header</el-header>
     <el-container>
-      <el-aside width="200px" id="app-nav">
-        <router-link to="/">Home</router-link>
+      <el-aside width="200px" id="app-menu">
+        <app-menu />
+        <!-- <router-link to="/">Home</router-link>
         <br>
-        <router-link to="/about">About</router-link>
+        <router-link to="/about">About</router-link> -->
       </el-aside>
       <el-main id="app-main">
-        <router-view />
+        <router-view class="app-container" />
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
+import AppMenu from './components/AppMenu'
 export default {
   data () {
     return {}
   },
-  computed: {},
-  components: {},
+  components: { AppMenu },
   methods: {},
   mounted () {},
   created () {}
@@ -39,8 +40,7 @@ export default {
     background-color: #409EFF;
     background-size: 100% 100%;
   }
-  #app-nav {
-    padding: 10px 20px;
+  #app-menu {
     box-shadow: 0px 0 10px 0 rgba(0, 0, 0, .2);
     a {
       font-weight: bold;
@@ -53,6 +53,12 @@ export default {
   #app-main {
     padding: 0;
     background-color: #f0f3f4;
+    padding: 16px;
+    .app-container {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+    }
   }
 }
 </style>

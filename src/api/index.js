@@ -1,6 +1,6 @@
 import fetch from '@/utils/fetch'
 
-function getData (params) {
+function getListData (params) {
   return fetch({
     url: '/api/data',
     params
@@ -15,6 +15,6 @@ function submitForm (params) {
 }
 
 export default {
-  getData,
+  getListData,
   submitForm
 }

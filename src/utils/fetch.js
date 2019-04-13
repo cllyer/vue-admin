@@ -48,8 +48,9 @@ service.interceptors.response.use(
       let rejection = {
         config: response.config,
         status: response.data.code,
-        message: response.data.message
+        message: response.data.msg
       }
+      console.error(rejection)
       return Promise.reject(rejection)
     }
     return Promise.resolve(response.data)
@@ -57,14 +58,14 @@ service.interceptors.response.use(
   error => {
     if (error.response) {
       if (error.response.status === 404) {
-        // alert('请求的资源不存在')
+        console.error('请求的资源不存在')
       } else if (error.response.status === 403) {
-        alert('没有访问权限')
+        console.error('没有访问权限')
       } else if (error.response.status === 401) {
-        alert('登录状态失效，请重新登录')
+        console.error('登录状态失效，请重新登录')
         // router.replace('/login')
       } else if (error.response.status === 500) {
-        alert('请求异常')
+        console.error('请求异常')
       }
       return Promise.reject(error)
     } else {

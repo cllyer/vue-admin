@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="tableBox" class="table-container">
-      <el-table :data="tableData" :height="height" style="width: 100%">
+      <el-table ref="tableList" :data="tableData" :height="height" style="width: 100%">
         <el-table-column type="index" width="50"></el-table-column>
         <el-table-column prop="name" label="姓名" width="180"></el-table-column>
         <el-table-column prop="age" label="年龄" width="180"></el-table-column>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import API from '@/api'
+// import API from '@/api'
 
 export default {
   data () {
@@ -39,12 +39,14 @@ export default {
   },
   methods: {
     async getTableData (page = 1) {
-      // this.tableData = []
+      // if (this.$refs.tableList) {
+      //   this.$refs.tableList.$el.querySelector('.el-table__body-wrapper').scrollTop = 0
+      // }
       this.pageDesc.page = page
-      let res = await API.getListData(this.pageDesc)
+      let res = await this.$_API.getListData(this.pageDesc)
       console.log(res)
-      this.tableData = res.list
-      this.total = res.total
+      this.tableData = res.data.list
+      this.total = res.data.total
     },
     handleSizeChange (size) {
       this.pageDesc.size = size
@@ -54,7 +56,9 @@ export default {
   mounted () {
     this.height = this.$refs.tableBox.clientHeight
   },
-  created () {
+  async created () {
+    let res = await this.$_API.login({ username: 'cllyer', password: '123456' })
+    console.log(res)
     this.getTableData()
   }
 }

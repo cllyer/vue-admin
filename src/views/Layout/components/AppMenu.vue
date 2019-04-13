@@ -29,10 +29,17 @@ export default {
   data () {
     return {}
   },
+  computed: {
+    menu () {
+      return this.$store.state.menu
+    }
+  },
   components: {},
   methods: {},
   mounted () {},
-  created () {}
+  created () {
+    console.log(this.menu)
+  }
 }
 </script>
 

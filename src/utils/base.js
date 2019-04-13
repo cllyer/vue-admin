@@ -3,6 +3,7 @@
  * 在组件中可以使用this.xxx调用
  */
 import Utils from '@/utils/utils'
+import API from '@/api'
 
 // 事件防抖
 let timer = null
@@ -20,8 +21,8 @@ function debounce (fn, delay = 500) {
 
 const base = {
   install (Vue, options) {
-    Vue.prototype.openLoading = Utils.openLoading
-    Vue.prototype.closeLoading = Utils.closeLoading
+    Vue.prototype.$_API = API
+    Vue.prototype.$_Utils = Utils
     Vue.prototype.debounce = debounce
   }
 }

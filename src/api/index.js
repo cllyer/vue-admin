@@ -1,8 +1,15 @@
 import fetch from '@/utils/fetch'
 
+function login (params) {
+  return fetch({
+    url: '/api/login',
+    method: 'post',
+    params
+  })
+}
 function getListData (params) {
   return fetch({
-    url: '/api/data',
+    url: '/api/list',
     params
   })
 }
@@ -15,6 +22,7 @@ function submitForm (params) {
 }
 
 export default {
+  login,
   getListData,
   submitForm
 }

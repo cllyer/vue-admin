@@ -4,9 +4,6 @@
     <el-container>
       <el-aside width="200px" id="app-menu">
         <app-menu />
-        <!-- <router-link to="/">Home</router-link>
-        <br>
-        <router-link to="/about">About</router-link> -->
       </el-aside>
       <el-main id="app-main">
         <router-view class="app-container" />
@@ -42,12 +39,9 @@ export default {
   }
   #app-menu {
     box-shadow: 0px 0 10px 0 rgba(0, 0, 0, .2);
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      &.router-link-exact-active {
-        color: #42b983;
-      }
+    .el-menu {
+      height: 100%;
+      border-right: none;
     }
   }
   #app-main {

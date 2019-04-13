@@ -10,7 +10,7 @@ webp.install = (Vue, options = {}) => {
   Vue.directive('webp', {
     // 只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。
     bind: function (el) {
-      if (el.tagName.toLowerCase() === 'img' && el.src && el.src.indexOf('data:image') == -1 && window.supportsWebP) {
+      if (el.tagName.toLowerCase() === 'img' && el.src && el.src.indexOf('data:image') === -1 && window.supportsWebP) {
         var _src = el.src
         el.src = _src + '.webp'
         el.onerror = function () {

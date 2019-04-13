@@ -17,7 +17,7 @@
       @current-change="getTableData"
       @size-change="handleSizeChange"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="total">
+      :total="total" background>
     </el-pagination>
   </div>
 </template>

@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 #app-container {
   width: 100%;
   height: 100%;
@@ -53,11 +53,16 @@ export default {
   #app-main {
     padding: 0;
     background-color: #f0f3f4;
-    padding: 16px;
     .app-container {
       width: 100%;
       height: 100%;
+      padding: 16px;
       background-color: #fff;
+      background-clip: content-box;
+      &.app-container_full {
+        padding: 0;
+        background-color: #f0f3f4;
+      }
     }
   }
 }

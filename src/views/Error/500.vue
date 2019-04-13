@@ -1,5 +1,5 @@
 <template>
-  <div>500</div>
+  <div class="app-container_full">500</div>
 </template>
 
 <script>

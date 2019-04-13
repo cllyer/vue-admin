@@ -1,5 +1,5 @@
 <template>
-  <div>403</div>
+  <div class="app-container_full">403</div>
 </template>
 
 <script>

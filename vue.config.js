@@ -19,6 +19,9 @@ module.exports = {
   },
   chainWebpack: config => {
     // config.resolve.alias.set('@', resolve('src'))
+    if (process.env.NODE_ENV === 'production') {
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
+    }
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons/svg'))

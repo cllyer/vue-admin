@@ -1,4 +1,5 @@
 const path = require('path')
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 // const ip = require('ip')
 
 // const isProd = process.env.NODE_ENV === 'production'
@@ -15,13 +16,24 @@ module.exports = {
     externals: {
       // 'BMap': 'BMap'
     },
-    plugins: []
+    plugins: [],
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            warnings: false,
+            compress: {
+              drop_console: true,
+              drop_debugger: false,
+              pure_funcs: ['console.log']
+            }
+          }
+        })
+      ]
+    }
   },
   chainWebpack: config => {
     // config.resolve.alias.set('@', resolve('src'))
-    if (process.env.NODE_ENV === 'production') {
-      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
-    }
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons/svg'))

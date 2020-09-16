@@ -1,9 +1,8 @@
 const path = require('path')
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
-// const ip = require('ip')
+const ip = require('ip')
 
 // const isProd = process.env.NODE_ENV === 'production'
-// const isTest = process.env.ENV === 'testServer'
+// const isTest = process.env.NODE_ENV === 'test'
 
 function resolve (dir) {
   return path.join(__dirname, '.', dir)
@@ -11,29 +10,24 @@ function resolve (dir) {
 
 module.exports = {
   publicPath: './',
-  outputDir: 'docs',
+  outputDir: 'dist',
   configureWebpack: {
     externals: {
-      // 'BMap': 'BMap'
+      // 'AMap': 'AMap'
     },
     plugins: [],
     optimization: {
-      minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            warnings: false,
-            compress: {
-              drop_console: true,
-              drop_debugger: false,
-              pure_funcs: ['console.log']
-            }
-          }
-        })
-      ]
+      minimizer: []
     }
   },
   chainWebpack: config => {
     // config.resolve.alias.set('@', resolve('src'))
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = 'vue-admin' // index.html的title配置
+        return args
+      })
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons/svg'))
@@ -49,15 +43,16 @@ module.exports = {
       .options({ symbolId: 'icon-[name]' })
   },
   devServer: {
-    // host: ip.address(),
+    host: ip.address(),
     open: true, // 自动打开浏览器
-    port: 8888
+    port: 8800
+    // ,
     // proxy: {
-    //   '/api': {
-    //     target: '<url>',
-    //     ws: true,
-    //     changeOrigin: true
+    //   '/': {
+    //     target: process.env.VUE_APP_BASE_API,
+    //     changeOrigin: true,
+    //     ws: false
     //   }
-    // },
+    // }
   }
 }

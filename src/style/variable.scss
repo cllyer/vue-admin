@@ -1,0 +1,10 @@
+$menuBgColor: #001529;
+$menuTextColor: rgba(255, 255, 255, 0.65);
+$menuActiveBgColor: #1890ff;
+$menuActiveTextColor: #fff;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+// :export {
+
+// }

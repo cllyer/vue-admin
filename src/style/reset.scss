@@ -1,0 +1,30 @@
+.el-menu {
+  border-right: none;
+  background-color: $menuBgColor;
+  .el-menu-item {
+    color: $menuTextColor;
+    &:not(.is-active):hover, &:not(.is-active):focus {
+      color: $menuActiveTextColor;
+      background-color: inherit;
+    }
+    &.is-active {
+      color: $menuActiveTextColor;
+      background-color: $menuActiveBgColor;
+    }
+  }
+  .el-submenu {
+    &.is-active .el-submenu__title {
+      color: $menuActiveTextColor;
+      i {
+        color: $menuActiveTextColor;
+      }
+    }
+    .el-submenu__title {
+      color: $menuTextColor;
+      background-color: $menuBgColor;
+      i {
+        color: $menuTextColor;
+      }
+    }
+  }
+}

@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!-- <icon-svg icon-class="file"></icon-svg>
-    <icon-svg icon-class="file_pdf"></icon-svg> -->
     <router-view/>
   </div>
 </template>

@@ -14,7 +14,22 @@ function getUserMenus (id) {
   })
 }
 
+function getUserList (params) {
+  return http({
+    url: '/api/sys/user',
+    params
+  })
+}
+function getRoleList (params) {
+  return http({
+    url: '/api/sys/role',
+    params
+  })
+}
+
 export default {
   login,
-  getUserMenus
+  getUserMenus,
+  getUserList,
+  getRoleList
 }

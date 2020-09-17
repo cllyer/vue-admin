@@ -26,7 +26,7 @@ export const components = {
 
 const router = new VueRouter({
   mode: 'hash',
-  // base: process.env.BASE_URL,
+  // scrollBehavior: () => ({ y: 0 }),
   routes: [
     { path: '/login', component: Login, meta: { noAuth: true } }
     // { path: '/*', redirect: '/dashboard/index' }

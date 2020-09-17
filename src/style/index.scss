@@ -9,3 +9,95 @@ html, body {
 div {
   box-sizing: border-box;
 }
+
+#app-container {
+  width: 100%;
+  height: 100%;
+  #app-menu {
+    height: 100%;
+    overflow: auto;
+    background-color: $menuBgColor;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+    transition: 0.2s;
+  }
+  #app-wrap {
+    height: 100%;
+    #app-head {
+      background-color: #fff;
+      box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 9;
+      span {
+        cursor: pointer;
+      }
+    }
+    #app-main {
+      padding: 12px;
+      background-color: #f0f2f5;
+      // height: calc(100% - 64px);
+      .app-container {
+        width: 100%;
+        min-height: 100%;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+        &.page-content {
+          padding: 18px;
+          background-color: #fff;
+          display: flex;
+          flex-direction: column;
+          .page-filter {
+            .el-form-item {
+              margin-bottom: 12px;
+              .el-form-item__content {
+                .el-input, .el-select {
+                  width: 100%;
+                }
+              }
+            }
+            &.page-filter-complex .el-form-item {
+              width: calc(20% - 8px);
+              &:nth-child(5n), &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+          .table-container {
+            margin-top: 6px;
+            flex: 1;
+            .el-table th.gutter{
+              display: table-cell !important;
+            }
+            th {
+              background-color: #F8F8F8;
+            }
+          }
+          .page-pagination {
+            padding: 12px 0 0;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.row-operate {
+  color: #409EFF;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+  &.row-operate--disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.text-warn {
+  color: #F56C6C !important;
+}

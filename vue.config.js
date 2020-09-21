@@ -1,5 +1,6 @@
 const path = require('path')
 const ip = require('ip')
+const TerserPlugin = require('terser-webpack-plugin')
 
 // const isProd = process.env.NODE_ENV === 'production'
 // const isTest = process.env.NODE_ENV === 'test'
@@ -10,14 +11,27 @@ function resolve (dir) {
 
 module.exports = {
   publicPath: './',
-  outputDir: 'dist',
+  outputDir: 'docs',
   configureWebpack: {
     externals: {
       // 'AMap': 'AMap'
     },
     plugins: [],
     optimization: {
-      minimizer: []
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            ecma: undefined,
+            warnings: false,
+            parse: {},
+            compress: {
+              drop_console: true,
+              drop_debugger: false,
+              pure_funcs: ['console.log'] // 移除console
+            }
+          }
+        })
+      ]
     }
   },
   chainWebpack: config => {
